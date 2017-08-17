@@ -38,11 +38,12 @@ Route::get('admin/login', 'Admin\AuthController@login');
 Route::get('admin/logout', 'Admin\AuthController@logout');
 Route::get('admin/register', 'Admin\AuthController@showRegisterForm');
 Route::post('admin/register', 'Admin\AuthController@register');
+Route::post('admin/login', 'Admin\AuthController@authenticate');
 Route::group(
     ['middleware' => ['auth:admin']], 
     function () {
-        Route::post('admin/login', 'Admin\AuthController@authenticate');        
 	    Route::get('admin/dashboard', 'Admin\AdminController@index');
         Route::get('admin/profile', 'Admin\AdminController@profile');
+        Route::get('admin/news', 'Admin\NewsController@index');
     }
 );

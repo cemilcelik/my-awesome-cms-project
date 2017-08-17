@@ -11,15 +11,15 @@
             @endif
             <li>
                 @if (Auth::check())
-                    <a href="url('logout')" 
+                    <a href="javascript:;" 
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Logout
                     </a>
-                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
                 @else
-                    <a href="url('login')">Login</a>
+                    <a href="login">Login</a>
                 @endif
             </li>
         </ul>
