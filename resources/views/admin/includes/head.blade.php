@@ -5,4 +5,4 @@
 
 <title>{{ config('app.name') }} v0.0.1</title>
 
-<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/admin.css">
