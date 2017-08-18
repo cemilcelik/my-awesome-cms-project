@@ -3,6 +3,6 @@
 <meta name="author" content="cemilcelik">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>Super Cool CMS 1.0</title>
+<title>{{ config('app.name') }} v0.0.1</title>
 
 <link rel="stylesheet" href="/css/app.css">

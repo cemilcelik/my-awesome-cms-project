@@ -1,6 +1,6 @@
 <div class="navbar">
     <div class="navbar-inner">
-        <a id="logo" href="/">Super Cool CMS 1.0 - Admin Panel</a>
+        <a id="logo" href="/">{{ config('app.name') }} v0.0.1 - Admin Panel</a>
         <ul class="nav nav-tabs">
             <li><a href="/">Home</a></li>
             <li><a href="/news">News</a></li>
