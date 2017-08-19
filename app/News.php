@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Dimsav\Translatable\Translatable;
 
 class News extends Model
 {
-    protected $table = 'news';
+    use Translatable;
 
-    public $timestamps = true;
+    public $translatedAttributes = ['title', 'slug', 'description'];
+
+    protected $fillable = ['title', 'slug', 'description'];
+
 }

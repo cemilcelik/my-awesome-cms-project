@@ -15,12 +15,7 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('type', array('news', 'announcement' ,'fair'))->default('news');
-            $table->date('date')->index();
-            $table->enum('remove', array('0', '1'))->default('0')->index();
             $table->timestamps();
-            $table->softDeletes();
-            $table->engine = 'MyIsam';
         });
     }
 

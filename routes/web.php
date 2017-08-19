@@ -13,9 +13,12 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/about-us', 'ContentController@index');
-Route::get('/news', 'NewsController@index');
+Route::get(trans('routes.about'), ['as' => 'about', 'uses' => 'ContentController@index']);
+Route::get(trans('routes.news'), ['as' => 'news', 'uses' => 'NewsController@index']);
+Route::get('news/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
 Route::get('/contact', 'ContactController@index');
+
+Route::get('lang/{language}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 
 // Member Routes
 Auth::routes();
@@ -40,7 +43,7 @@ Route::get('admin/register', 'Admin\AuthController@showRegisterForm');
 Route::post('admin/register', 'Admin\AuthController@register');
 Route::post('admin/login', 'Admin\AuthController@authenticate');
 Route::group(
-    ['middleware' => ['auth:admin']], 
+    ['middleware' => ['auth:admin']],
     function () {
 	    Route::get('admin/dashboard', 'Admin\AdminController@index');
         Route::get('admin/profile', 'Admin\AdminController@profile');
