@@ -1,5 +1,7 @@
 <?php
 return [
-    'about' => 'hakkimizda',
-    'news' => 'haberler',
+    'home'      => 'anasayfa',
+    'about'     => 'hakkimizda',
+    'news'      => 'haberler',
+    'contact'   => 'iletisim',
 ];

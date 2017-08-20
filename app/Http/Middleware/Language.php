@@ -16,18 +16,18 @@ class Language
      */
     public function handle($request, Closure $next)
     {
-        // dd(config('translatable.locales'));
-        // dd($request->segments());
+        if ($request->segment(1) != 'admin') {
 
-        if ( ! array_key_exists($request->segment(1), config('translatable.locales'))) {
-            
-            $segments = $request->segments();
+            if ( ! array_key_exists($request->segment(1), config('translatable.locales'))) {
 
-            // dd($segments);
+                $segments = $request->segments();
 
-            $segments = array_prepend($segments, config('app.fallback_locale'));
+                $segments = array_prepend($segments, config('app.fallback_locale'));
 
-            return redirect()->to(implode('/', $segments));
+                // makes redirection
+                return redirect()->to(implode('/', $segments));
+
+            }
 
         }
 

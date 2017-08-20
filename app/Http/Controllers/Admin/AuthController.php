@@ -18,10 +18,10 @@ class AuthController extends Controller
 	}
 
 	public function authenticate(Request $request) {
-		
+
 		if ($this->guard()->attempt(['email' => $request->get('email'), 'password' => $request->get('password')])) {
-			
-			return redirect('admin/dashboard');
+
+			return redirect(config('app.locale') . '/admin/dashboard');
 
 		} else {
 
@@ -35,7 +35,7 @@ class AuthController extends Controller
 
 		Auth::logout();
 
-		return redirect('admin/login');
+		return redirect(config('app.locale') . '/admin/login');
 
 	}
 
@@ -52,7 +52,7 @@ class AuthController extends Controller
 
 		}
 
-		return redirect('admin/login');
+		return redirect(config('app.locale') . '/admin/login');
 
 	}
 

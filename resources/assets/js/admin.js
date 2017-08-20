@@ -13,4 +13,4 @@ try {
 /**
  * Common.js
  */
-alert("asdf");
+console.log("Test...");

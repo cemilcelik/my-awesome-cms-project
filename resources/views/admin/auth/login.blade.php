@@ -7,7 +7,7 @@
                 <div class="col-sm-4 col-sm-offset-1">
                     <div class="login-form"><!--login form-->
                         <h2>Login to your account</h2>
-                        <form method="POST" action="{{url('admin/login')}}">
+                        <form method="POST" action="{{ url(config('app.locale') . '/admin/login') }}">
                             {!! csrf_field() !!}
                             <input type="email" name="email" id="email" placeholder="Email Address" />
                             <input type="password" name="password" id="password" placeholder="Password" />
@@ -25,7 +25,7 @@
                 <div class="col-sm-4">
                     <div class="signup-form"><!--sign up form-->
                         <h2>New User Signup!</h2>
-                        <form method="POST" action="{{url('admin/register')}}">
+                        <form method="POST" action="{{ url(config('app.locale') . '/admin/register') }}">
                             {!! csrf_field() !!}
                             <input type="text" name="name" id="name"  placeholder="Name">
                             <input type="text" name="surname" id="surname"  placeholder="Surname">

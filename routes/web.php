@@ -12,11 +12,11 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get(trans('home'), ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get(trans('routes.about'), ['as' => 'about', 'uses' => 'ContentController@index']);
 Route::get(trans('routes.news'), ['as' => 'news', 'uses' => 'NewsController@index']);
-Route::get('news/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
-Route::get('/contact', 'ContactController@index');
+Route::get(trans('news').'/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
+Route::get(trans('contact'), ['as' => 'contact', 'uses' => 'ContactController@index']);
 
 Route::get('lang/{language}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 
