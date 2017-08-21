@@ -4,7 +4,11 @@
     <section>
         <div class="row">
             <div class="col-sm-12 text-center">
-                { ADMIN PANEL HABER LİSTELEME İŞLEMLERİ BURADA YAPILIR - {{ $title }} }
+                <ul>
+                    @foreach ($news as $value)
+                        <li><a href="#">{{ $value->title }}</a></li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </section>

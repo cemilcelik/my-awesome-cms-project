@@ -2,7 +2,7 @@
     <div class="navbar-inner">
         <a id="logo" href="/">{{ config('app.name') }}</a>
         <div class="pull-right">
-            @foreach (config('translatable.locales') as $lang => $language)
+            @foreach (config('app.locales') as $lang => $language)
                 @if ($lang != app()->getLocale())
                     <a href="{{ route('lang.switch', $lang) }}">{{ $language }}</a>
                 @endif

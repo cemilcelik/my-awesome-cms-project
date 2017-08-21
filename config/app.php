@@ -80,6 +80,11 @@ return [
     'locale' => 'en',
 
     /*
+    * Supported Languages
+    */
+    'locales' => ['en' => 'English', 'tr' => 'Türkçe'],
+
+    /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
     |--------------------------------------------------------------------------
@@ -176,9 +181,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        Dimsav\Translatable\TranslatableServiceProvider::class,
-        Cviebrock\EloquentSluggable\ServiceProvider::class,
 
     ],
 

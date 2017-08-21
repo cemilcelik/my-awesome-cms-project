@@ -5,11 +5,11 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <ul>
-                        @foreach ($news as $value)
+                        @foreach ($news as $key => $value)
                             <li>
                                 <a href="{{ route('news.show', $value->slug) }}">
                                     {{ $value->title }}
-                                </a>                            
+                                </a>
                             </li>
                         @endforeach
                     </ul>

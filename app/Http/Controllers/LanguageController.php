@@ -19,7 +19,7 @@ class LanguageController extends Controller
 
 		$segments = $previousRequest->segments();
 
-		if (array_key_exists($lang, config('translatable.locales'))) {
+		if (array_key_exists($lang, config('app.locales'))) {
 
 			if ($routeName && Lang::has('routes.' . $routeName, $lang)) {
 

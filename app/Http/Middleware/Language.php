@@ -18,7 +18,7 @@ class Language
     {
         if ($request->segment(1) != 'admin') {
 
-            if ( ! array_key_exists($request->segment(1), config('translatable.locales'))) {
+            if ( ! array_key_exists($request->segment(1), config('app.locales'))) {
 
                 $segments = $request->segments();
 
