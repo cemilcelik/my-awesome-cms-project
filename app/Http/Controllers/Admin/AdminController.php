@@ -9,20 +9,11 @@ use App\Admin;
 
 class AdminController extends Controller
 {
-	public function __construct(){
-		$this->middleware('admin');
-	}
-
-    protected function guard()
-    {
-      return Auth::guard('admin');
-    }
-
-	public function index(){
+	public function index() {
 		return view('admin.dashboard.index');
 	}
 
-	public function profile(){
+	public function profile() {
 		return view('admin.profile.index');
 	}
 }

@@ -6,7 +6,7 @@
             <div class="col-sm-12 text-center">
                 <ul>
                     @foreach ($news as $value)
-                        <li><a href="#">{{ $value->title }}</a></li>
+                        <li><a href="#">{{ $value->relations->languages()->title }}</a></li>
                     @endforeach
                 </ul>
             </div>

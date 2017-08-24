@@ -40,7 +40,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapAdminRoutes();
     }
 
     /**
@@ -56,19 +56,12 @@ class RouteServiceProvider extends ServiceProvider
 
             $locale = Request::segment(1);
 
-            Route::middleware('web')
-                 ->namespace($this->namespace)
-                 ->prefix($locale)
-                 ->group(base_path('routes/web.php'));
-
-        }else{
-
-            Route::middleware('web')
-                 ->namespace($this->namespace)
-                 ->group(base_path('routes/web.php'));
+            Route::prefix($locale)
+                ->namespace($this->namespace)
+                ->middleware('web')
+                ->group(base_path('routes/web.php'));
 
         }
-
     }
 
     /**
@@ -84,5 +77,20 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "admin" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapAdminRoutes()
+    {
+        Route::prefix('admin')
+            ->middleware('web')
+            ->namespace($this->namespace . '\Admin')
+            ->group(base_path('routes/admin.php'));
     }
 }

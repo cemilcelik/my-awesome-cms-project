@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
-    protected $fillable = ['title', 'slug', 'description'];
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class, 'news_language')->withPivot('title', 'description')->wherePivot('code', 'tr');
+    }
 }

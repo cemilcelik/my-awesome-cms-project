@@ -12,9 +12,20 @@
                 </li>
             @endif
             <li>
-                <a href="{{Auth::check() ? url('admin/logout') : url('admin/login')}}">
-                    {{Auth::check() ? 'Logout' : 'Login'}}
-                </a>
+                @if (Auth::check())
+                    <a href="javascript:;"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ url('admin/logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                @else
+                    <a href="{{ url('admin/login') }}">Login</a>
+                @endif
+            </li>
+            <li>
+                <a href="{{ route('register') }}">Register</a>
             </li>
         </ul>
     </div>
