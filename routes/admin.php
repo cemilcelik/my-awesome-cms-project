@@ -31,5 +31,17 @@ Route::middleware(['auth:admin']) // middleware:guard
         Route::get('/', 'AdminController@index');
         Route::get('dashboard', 'AdminController@index');
         Route::get('profile', 'AdminController@profile');
-        Route::get('news', 'NewsController@index');
+
+        Route::resource('news', 'NewsController');
+        /*
+        Verb	    URI	                    Action	    Route Name
+        ----        ---                     ------      ----------
+        GET	        /news	                index	    news.index
+        GET	        /news/create	        create	    news.create
+        POST	    /news	                store	    news.store
+        GET	        /news/{id}	            show	    news.show
+        GET	        /news/{id}/edit	        edit	    news.edit
+        PUT/PATCH	/news/{id}	            update	    news.update
+        DELETE	    /news/{id}	            destroy	    news.destroy
+        */
 });

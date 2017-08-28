@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewsTable extends Migration
+class AddNewsActiveField extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
-            $table->increments('id');
-            $table->datetime('datetime');
-            $table->boolean('active');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('news', function (Blueprint $table) {
+            $table->boolean('active')->default(0)->after('datetime');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::table('news', function (Blueprint $table) {
+            $table->dropColumn('active');
+        });
     }
 }

@@ -81,6 +81,7 @@ return [
 
     /*
     * Supported Languages
+    * Uses: App\Middleware\Language
     */
     'locales' => ['en' => 'English', 'tr' => 'Türkçe'],
 

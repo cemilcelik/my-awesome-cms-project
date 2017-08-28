@@ -5,10 +5,10 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <ul>
-                        @foreach ($news as $key => $value)
+                        @foreach ($newsAll as $i => $news)
                             <li>
-                                <a href="{{ route('news.show', $value->slug) }}">
-                                    {{ $value->title }}
+                                <a href="{{ route('news.show', $news->id) }}">
+                                    {{ $news->language[0]->pivot->title }}
                                 </a>
                             </li>
                         @endforeach

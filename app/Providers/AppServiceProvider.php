@@ -22,7 +22,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Request $request)
     {
-        app()->setLocale($request->segment(1));
+        if ($request->segment(1) != 'admin') {
+            app()->setLocale($request->segment(1));
+        }
     }
 
     /**

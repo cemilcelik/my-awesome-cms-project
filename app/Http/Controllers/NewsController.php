@@ -14,7 +14,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $newsAll = News::with('language')->get();
+        return view('news.index', compact('newsAll'));
     }
 
     /**
