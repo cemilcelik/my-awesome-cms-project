@@ -15,28 +15,8 @@ class NewsController extends Controller
     public function index()
     {
         $newsAll = News::with('language')->get();
+
         return view('news.index', compact('newsAll'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -45,42 +25,15 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show($id, $slug)
     {
-        //
-    }
+        // todo try take single resourse (news, news_language)
+        // todo try take single variable instead of array
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\News  $news
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(News $news)
-    {
-        //
-    }
+        $news = News::findOrFail($id); // auto-handler exception
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\News  $news
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, News $news)
-    {
-        //
-    }
+        $newsLanguage = $news->language;
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\News  $news
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(News $news)
-    {
-        //
+        return view('news.show', compact('news', 'newsLanguage'));
     }
 }

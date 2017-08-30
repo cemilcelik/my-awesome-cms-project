@@ -38,9 +38,16 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
-        $this->mapWebRoutes();
+        if (Request::segment(1) == 'admin') {
 
-        $this->mapAdminRoutes();
+            $this->mapAdminRoutes();
+
+        }else{
+
+            $this->mapWebRoutes();
+            
+        }
+        
     }
 
     /**
@@ -52,16 +59,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        if (Request::segment(1) != 'admin') {
+        $locale = Request::segment(1);
 
-            $locale = Request::segment(1);
-
-            Route::prefix($locale)
-                ->namespace($this->namespace)
-                ->middleware('web')
-                ->group(base_path('routes/web.php'));
-
-        }
+        Route::prefix($locale)
+            ->namespace($this->namespace)
+            ->middleware('web')
+            ->group(base_path('routes/web.php'));
     }
 
     /**

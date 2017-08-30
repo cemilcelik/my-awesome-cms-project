@@ -16,7 +16,7 @@ Route::get('/', 'HomeController@index');
 Route::get(trans('home'), ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get(trans('routes.about'), ['as' => 'about', 'uses' => 'ContentController@index']);
 Route::get(trans('routes.news'), ['as' => 'news', 'uses' => 'NewsController@index']);
-Route::get(trans('news').'/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
+Route::get(trans('routes.news').'/{id}/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
 Route::get(trans('contact'), ['as' => 'contact', 'uses' => 'ContactController@index']);
 
 Route::get('lang/{language}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);

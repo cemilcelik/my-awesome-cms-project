@@ -7,7 +7,7 @@
                     <ul>
                         @foreach ($newsAll as $i => $news)
                             <li>
-                                <a href="{{ route('news.show', $news->id) }}">
+                                <a href="{{ $news->url }}">
                                     {{ $news->language[0]->pivot->title }}
                                 </a>
                             </li>

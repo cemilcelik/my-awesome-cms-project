@@ -21,6 +21,16 @@ class News extends Model
             static::addGlobalScope(new ActiveScope);
         }
     }
+
+    public function getSlugAttribute() : string
+    {
+        return str_slug($this->language[0]->pivot->title);
+    }
+
+    public function getUrlAttribute() : string
+    {
+        return action('NewsController@show', [$this->id, $this->slug]);
+    }
     
     public function languages()
     {
