@@ -21,8 +21,10 @@ window.Vue = require('vue');
 //     el: '#app'
 // });
 
-require('font-awesome');
-
 $(function() {
-    console.log("Test...");
+
+    console.log("Admin...");
+
+    $('.b-tooltip').tooltip();
+
 });
