@@ -11,7 +11,11 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js').extract(['jquery', 'lodash', 'axios', 'vue']) // @todo: 'bootstrap-sass' removed for error: "bootstrap's JavaScript requires jQuery"
-   .sass('resources/assets/sass/app.scss', 'public/css')
-   .js('resources/assets/js/admin.js', 'public/js')
-   .sass('resources/assets/sass/admin.scss', 'public/css');
+mix.extract(['jquery', 'bootstrap-sass', 'lodash', 'axios', 'vue'])
+    .autoload({
+        jquery: ['$', 'window.jQuery', 'jQuery', 'jquery'], // solution : 'bootstrap-sass' error : "bootstrap's JavaScript requires jQuery"
+    })
+    .js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .js('resources/assets/js/admin/app.js', 'public/js/admin')
+    .sass('resources/assets/sass/admin/app.scss', 'public/css/admin');

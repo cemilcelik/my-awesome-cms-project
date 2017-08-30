@@ -7,4 +7,4 @@
 
 <title>{{ config('app.name') }} v0.0.1</title>
 
-<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="css/admin/app.css">
