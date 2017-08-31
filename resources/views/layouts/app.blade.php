@@ -1,5 +1,5 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
 <head>
     @include('includes.head')
 </head>
@@ -11,7 +11,7 @@
             @include('includes.header')
         </header>
 
-        <div id="main" class="row">
+        <div class="row main">
             @yield('content')
         </div>
 

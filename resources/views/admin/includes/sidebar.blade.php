@@ -1,12 +1,16 @@
-<!-- sidebar nav -->
-<nav id="sidebar-nav">
-    <ul class="nav nav-pills nav-stacked">
-        <li><a href="{{ url('dashboard') }}">Dashboard</a></li>
-        <li><a href="{{ route('news.index') }}">News</a>
-            <ul>
-                <li><a href="{{ route('news.create') }}">News Add</a></li>
-            </ul>
-        </li>
-        <li><a href="{{ url('admin/logout') }}">Çıkış</a></li>
-    </ul>
-</nav>
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <a class="nav-link active" href="{{ url('dashboard') }}">Dashboard</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('news.index') }}">News</a>
+        <ul>
+            <li>
+                <a class="nav-link" href="{{ route('news.create') }}">News Add</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="{{ url('admin/logout') }}">Çıkış</a>
+    </li>
+</ul>

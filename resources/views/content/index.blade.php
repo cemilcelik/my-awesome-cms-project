@@ -1,4 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    This is the about us page
+    <section>
+        <div class="col">
+            This is the about us page
+        </div>
+    </section>
 @stop

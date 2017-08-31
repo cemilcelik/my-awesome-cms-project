@@ -1,5 +1,5 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
 <head>
     @include('admin.includes.head')
 </head>

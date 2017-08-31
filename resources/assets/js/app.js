@@ -21,8 +21,12 @@ window.Vue = require('vue');
 //     el: '#app'
 // });
 
+require('popper.js');
+
 $(function() {
 
     console.log("Site...");
+
+    $('.b-tooltip').tooltip();
     
 });

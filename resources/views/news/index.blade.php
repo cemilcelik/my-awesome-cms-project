@@ -1,20 +1,16 @@
 @extends('layouts.app')
 @section('content')
     <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <ul>
-                        @foreach ($newsAll as $i => $news)
-                            <li>
-                                <a href="{{ $news->url }}">
-                                    {{ $news->language[0]->pivot->title }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+        <div class="col">
+            <ul>
+                @foreach ($newsAll as $i => $news)
+                    <li>
+                        <a href="{{ $news->url }}">
+                            {{ $news->language[0]->pivot->title }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </section>
 @stop
