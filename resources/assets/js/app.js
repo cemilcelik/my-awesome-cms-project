@@ -23,10 +23,29 @@ window.Vue = require('vue');
 
 require('popper.js');
 
+require('jquery-form-validator');
+
 $(function() {
 
-    console.log("Site...");
+    console.log("JQuery loaded...");
 
     $('.b-tooltip').tooltip();
+
+    // Add custom validation rule
+    $.formUtils.addValidator({
+        name : 'datetime',
+        validatorFunction : function(value, $el, config, language, $form) {
+            var validTime = value.match(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01]) (00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9]):([0-9]|[0-5][0-9])$/);
+            if ( ! validTime) {
+               return false;
+            } else {
+               return true;
+            }
+        },
+        errorMessage : 'Invalid datetime.',
+        errorMessageKey: 'badDatetime'
+    });
+    
+    $.validate();
     
 });

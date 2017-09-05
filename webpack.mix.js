@@ -13,7 +13,7 @@ let mix = require('laravel-mix');
 
 mix
     .js('resources/assets/js/app.js', 'public/js')
-        .extract(['jquery', 'bootstrap-sass', 'lodash', 'axios', 'vue', 'popper.js'])
+        .extract(['jquery', 'bootstrap-sass', 'lodash', 'axios', 'vue', 'popper.js', 'jquery-form-validator'])
         .autoload({ jquery: ['$', 'window.jQuery', 'jQuery', 'jquery'] })
     .sass('resources/assets/sass/app.scss', 'public/css')
     .sourceMaps()
