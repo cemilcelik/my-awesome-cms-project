@@ -21,31 +21,28 @@ window.Vue = require('vue');
 //     el: '#app'
 // });
 
-require('popper.js');
+require('jquery-validation');
 
-require('jquery-form-validator');
+require('jquery-mask-plugin');
+
+window.tippy = require('tippy.js');
 
 $(function() {
 
     console.log("JQuery loaded...");
 
-    $('.b-tooltip').tooltip();
-
-    // Add custom validation rule
-    $.formUtils.addValidator({
-        name : 'datetime',
-        validatorFunction : function(value, $el, config, language, $form) {
-            var validTime = value.match(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01]) (00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9]):([0-9]|[0-5][0-9])$/);
-            if ( ! validTime) {
-               return false;
-            } else {
-               return true;
+    $('#form').validate({
+        rules: {
+            datetime: {
+                required: true,
+                date: true
             }
-        },
-        errorMessage : 'Invalid datetime.',
-        errorMessageKey: 'badDatetime'
+        }
     });
-    
-    $.validate();
+
+    $('.datetime').mask('0000-00-00 00:00:00', { placeholder: "____-__-__ __:__:__" });
+
+    tippy('.b-tooltip');
     
 });
+

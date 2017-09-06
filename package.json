@@ -21,7 +21,9 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta",
     "font-awesome": "^4.7.0",
-    "jquery-form-validator": "^2.3.77",
-    "popper.js": "^1.12.5"
+    "jquery-mask-plugin": "^1.14.11",
+    "jquery-validation": "^1.17.0",
+    "popper.js": "^1.12.5",
+    "tippy.js": "^1.2.0"
   }
 }

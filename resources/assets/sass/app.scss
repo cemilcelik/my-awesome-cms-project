@@ -12,7 +12,8 @@
 // Font-Awesome
 @import "~font-awesome/scss/font-awesome";
 
-//  Form Validation
-@import "~jquery-form-validator/form-validator/theme-default.min.css";
+// Tippy
+@import "~tippy.js/dist/tippy.css";
 
 .main{ padding: 50px 0; }
+.error{ color: red; }

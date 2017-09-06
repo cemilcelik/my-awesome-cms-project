@@ -7,10 +7,10 @@
     <section>
         <div class="row">
             <div class="col-sm-12 text-left">
-                <form action="{{ route('news.store') }}" method="post">
+                <form action="{{ route('news.store') }}" method="post" id="form">
                     <div class="form-group">
                         <label class="control-label">Date</label>
-                        <input type="text" name="datetime" class="form-control" value="{{ date('Y-m-d H:i:s') }}" data-validation="datetime">
+                        <input type="text" name="datetime" id="datetime" class="form-control datetime" value="{{ date('Y-m-d H:i:s') }}" required>
                     </div>
                     @if ($errors->has("datetime"))
                         <div class="alert alert-danger">
@@ -20,7 +20,7 @@
                     @foreach ($languages as $i => $language)
                         <div class="form-group">
                             <label for="title[{{ $language->id }}]" class="control-label">Title <sup>({{ $language->title }})</sup></label>
-                            <input type="text" name="title[{{ $language->id }}]" id="title[{{ $language->id }}]" class="form-control" value='{{ old("title.$language->id") }}' data-validation="length alphanumeric" data-validation-length="min4">
+                            <input type="text" name="title[{{ $language->id }}]" id="title[{{ $language->id }}]" class="form-control" value='{{ old("title.$language->id") }}' required minlength="5">
                         </div>
                         @if ($errors->has("title.$language->id")) 
                             <div class="alert alert-danger">
