@@ -1,27 +1,48 @@
+// Don't Work
+// $grid-columns: 12 !default;
+// $grid-gutter-width-base: 10px !default;
+// $grid-gutter-widths: (
+//   xs: $grid-gutter-width-base,
+//   sm: $grid-gutter-width-base,
+//   md: $grid-gutter-width-base,
+//   lg: $grid-gutter-width-base,
+//   xl: $grid-gutter-width-base
+// ) !default;
+
+// Z-Indexes
+// $zindex-dropdown-backdrop:  990 !default;
+// $zindex-navbar:            1000 !default;
+// $zindex-dropdown:          1000 !default;
+// $zindex-fixed:             1030 !default;
+// $zindex-sticky:            1030 !default;
+// $zindex-modal-backdrop:    1040 !default;
+// $zindex-modal:             1050 !default;
+// $zindex-popover:           1060 !default;
+// $zindex-tooltip:           1070 !default;
 
 // Body
 $body-bg: #f5f8fa;
 
 // Borders
-$laravel-border-color: darken($body-bg, 10%);
-$list-group-border: $laravel-border-color;
+$laravel-border-color:  darken($body-bg, 10%);
+$list-group-border:     $laravel-border-color;
 $navbar-default-border: $laravel-border-color;
-$panel-default-border: $laravel-border-color;
-$panel-inner-border: $laravel-border-color;
+$panel-default-border:  $laravel-border-color;
+$panel-inner-border:    $laravel-border-color;
 
 // Brands
-$brand-primary: #3097D1;
-$brand-info: #8eb4cb;
-$brand-success: #2ab27b;
-$brand-warning: #cbb956;
-$brand-danger: #bf5329;
+$brand-primary:  #3097D1;
+$brand-info:     #8eb4cb;
+$brand-success:  #2ab27b;
+$brand-warning:  #cbb956;
+$brand-danger:   #bf5329;
 
 // Typography
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 14px;
-$line-height-base: 1.6;
-$text-color: #636b6f;
+// $icon-font-path:            "~bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-sans-serif:    "Raleway", sans-serif;
+$font-size-base:            14 !default;
+$line-height-base:          1.6;
+$text-color:                #636b6f;
 
 // Navbar
 $navbar-default-bg: #fff;
@@ -30,9 +51,9 @@ $navbar-default-bg: #fff;
 $btn-default-color: $text-color;
 
 // Inputs
-$input-border: lighten($text-color, 40%);
-$input-border-focus: lighten($brand-primary, 25%);
-$input-color-placeholder: lighten($text-color, 30%);
+$input-border:              lighten($text-color, 40%);
+$input-border-focus:        lighten($brand-primary, 25%);
+$input-color-placeholder:   lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;

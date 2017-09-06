@@ -1,12 +1,10 @@
-
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
-// @import "variables";
+@import "./variables.scss";
 
 // Bootstrap
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "~bootstrap/scss/bootstrap";
 
 // Font-Awesome
@@ -15,5 +13,26 @@
 // Tippy
 @import "~tippy.js/dist/tippy.css";
 
+// Custom Styles
 .main{ padding: 50px 0; }
+
 .error{ color: red; }
+
+.navbar-brand{ padding-top: 15px; padding-bottom: 15px; }
+
+// Media Queries
+@include media-breakpoint-up(xs) {
+    body {background-color: $gray-500; }
+}
+@include media-breakpoint-up(sm) {
+    body {background-color: $gray-400; }
+}
+@include media-breakpoint-up(md) {
+    body {background-color: $gray-300; }
+}
+@include media-breakpoint-up(lg) {
+    body {background-color: $gray-200; }
+}
+@include media-breakpoint-up(xl) {
+    body {background-color: $gray-100; }
+}

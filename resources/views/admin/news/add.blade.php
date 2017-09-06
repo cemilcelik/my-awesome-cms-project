@@ -1,9 +1,6 @@
 @extends('admin.layouts.sidebar')
 
 @section('content')
-    <style>
-        h5 { font-weight: bold; }
-    </style>
     <section>
         <div class="row">
             <div class="col-sm-12 text-left">
