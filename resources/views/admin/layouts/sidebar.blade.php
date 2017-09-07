@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container-fluid">
 
         <header class="row">
             @include('admin.includes.header')
@@ -14,12 +14,12 @@
         <div id="main" class="row">
 
             <!-- sidebar content -->
-            <div id="sidebar" class="col-md-4">
+            <div id="sidebar" class="col-lg-3 col-sm-6">
                 @include('admin.includes.sidebar')
             </div>
 
             <!-- main content -->
-            <div id="content" class="col-md-8">
+            <div id="content" class="col-lg-9 col-sm-6">
                 @yield('content')
             </div>
 

@@ -11,9 +11,9 @@
                 {{ $news->datetime }}
                 <hr>
                 @foreach ($news->languages as $i => $language)
-                    <h5>Title <sup>({{ $language->title }})</sup></h5>
+                    <h5>Title <sup class="badge badge-pill badge-info">({{ $language->title }})</sup></h5>
                     {{ $language->pivot->title }}
-                    <h5>Description <sup>({{ $language->title }})</sup></h5>
+                    <h5>Description <sup class="badge badge-pill badge-info">({{ $language->title }})</sup></h5>
                     {{ $language->pivot->description }}
                     <hr>
                 @endforeach
