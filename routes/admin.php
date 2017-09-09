@@ -39,9 +39,10 @@ Route::middleware(['auth:admin']) // middleware:guard
         GET	        /news	                index	    news.index
         GET	        /news/create	        create	    news.create
         POST	    /news	                store	    news.store
-        GET	        /news/{id}	            show	    news.show
-        GET	        /news/{id}/edit	        edit	    news.edit
-        PUT/PATCH	/news/{id}	            update	    news.update
-        DELETE	    /news/{id}	            destroy	    news.destroy
+        GET	        /news/{news}	        show	    news.show
+        GET	        /news/{news}/edit	    edit	    news.edit
+        PUT/PATCH	/news/{news}	        update	    news.update
+        DELETE	    /news/{news}	        destroy	    news.destroy
         */
-});
+        Route::resource('media', 'MediaController');
+    });

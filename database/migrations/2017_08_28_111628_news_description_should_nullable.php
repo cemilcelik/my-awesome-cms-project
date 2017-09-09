@@ -26,7 +26,7 @@ class NewsDescriptionShouldNullable extends Migration
     public function down()
     {
         Schema::table('news_language', function (Blueprint $table) {
-            $table->text('description');
+            $table->text('description')->change();
         });
     }
 }

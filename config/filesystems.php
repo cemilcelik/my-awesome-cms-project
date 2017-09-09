@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'public'),
 
     /*
     |--------------------------------------------------------------------------
@@ -61,6 +61,29 @@ return [
             'secret' => env('AWS_SECRET'),
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
+        ],
+
+        'ftp' => [
+            'driver'   => 'ftp',
+            'host'     => 'ftp.example.com',
+            'username' => 'your-username',
+            'password' => 'your-password',
+            // Optional FTP Settings...
+            // 'port'     => 21,
+            // 'root'     => '',
+            // 'passive'  => true,
+            // 'ssl'      => true,
+            // 'timeout'  => 30,
+        ],
+
+        'rackspace' => [
+            'driver'    => 'rackspace',
+            'username'  => 'your-username',
+            'key'       => 'your-key',
+            'container' => 'your-container',
+            'endpoint'  => 'https://identity.api.rackspacecloud.com/v2.0/',
+            'region'    => 'IAD',
+            'url_type'  => 'publicURL',
         ],
 
     ],

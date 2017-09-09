@@ -12,4 +12,9 @@ class Language extends Model
     {
         return $this->belongsToMany(News::class, 'news_language');
     }
+
+    public function medias()
+    {
+        return $this->belongsToMany(Media::class, 'media_language');
+    }
 }

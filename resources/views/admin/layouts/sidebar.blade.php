@@ -14,12 +14,12 @@
         <div id="main" class="row">
 
             <!-- sidebar content -->
-            <div id="sidebar" class="col-lg-3 col-sm-6">
+            <div id="sidebar" class="col-lg-3 col-sm-4">
                 @include('admin.includes.sidebar')
             </div>
 
             <!-- main content -->
-            <div id="content" class="col-lg-9 col-sm-6">
+            <div id="content" class="col-lg-9 col-sm-8">
                 @yield('content')
             </div>
 

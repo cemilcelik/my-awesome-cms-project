@@ -41,4 +41,9 @@ class News extends Model
     {
         return $this->belongsToMany(Language::class, 'news_language')->withPivot('title', 'description')->where('code', config('app.locale'));
     }
+
+    public function medias()
+    {
+        return $this->morphToMany(Media::class, 'mediable');
+    }
 }

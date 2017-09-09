@@ -14,6 +14,17 @@
         </ul>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="#">Media</a>
+        <ul>
+            <li>
+                <a class="nav-link" href="{{ route('media.create') }}">Media Upload</a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ route('media.index') }}">Media List</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
         <a class="nav-link disabled" href="{{ url('admin/logout') }}">Çıkış</a>
     </li>
 </ul>
