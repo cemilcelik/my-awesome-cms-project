@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNewsActiveField extends Migration
+class AddRememberTokenToAdminTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddNewsActiveField extends Migration
      */
     public function up()
     {
-        Schema::table('news', function (Blueprint $table) {
-            $table->boolean('active')->default(0)->after('datetime');
+        Schema::table('admin', function(Blueprint $table) {
+            $table->rememberToken()->after('password');
         });
     }
 
@@ -25,8 +25,8 @@ class AddNewsActiveField extends Migration
      */
     public function down()
     {
-        Schema::table('news', function (Blueprint $table) {
-            $table->dropColumn('active');
+        Schema::table('admin', function(Blueprint $table) {
+            $table->dropRememberToken();
         });
     }
 }
