@@ -13,7 +13,7 @@ let mix = require('laravel-mix');
 
 mix
     .js('resources/assets/js/app.js', 'public/js')
-        .extract(['jquery', 'popper.js', 'lodash', 'axios', 'vue', 'jquery-validation', 'jquery-mask-plugin', 'tippy.js'])
+        .extract(['jquery', 'popper.js', 'lodash', 'axios', 'vue', 'jquery-validation', 'jquery-mask-plugin', 'tippy.js', 'quill'])
         .autoload({ jquery: ['$', 'window.jQuery', 'jQuery', 'jquery'] })
     .sass('resources/assets/sass/app.scss', 'public/css')
     .version();

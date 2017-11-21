@@ -27,10 +27,12 @@ require('jquery-mask-plugin');
 
 window.tippy = require('tippy.js');
 
+window.Quill = require('quill');
+
 $(function() {
 
     console.log("JQuery loaded...");
-
+    
     $('#form').validate({
         rules: {
             datetime: {
@@ -42,7 +44,17 @@ $(function() {
 
     $('.datetime').mask('0000-00-00 00:00:00', { placeholder: "____-__-__ __:__:__" });
 
-    tippy('.b-tooltip');
-    
+    if ($('#description-1').length > 0) {
+        var quill1 = new Quill("#description-1", {
+            theme: 'snow'
+        });
+    }
+
+    if ($('#description-1').length > 0) {
+        var quill2 = new Quill("#description-2", {
+            theme: 'snow'
+        });
+    }
+
 });
 

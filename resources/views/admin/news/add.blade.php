@@ -26,7 +26,7 @@
                         @endif
                         <div class="form-group">
                             <label for="description[{{ $language->id }}]" class="control-label">Description <sup>({{ $language->title }})</sup></label>
-                            <textarea name="description[{{ $language->id }}]" id="description[{{ $language->id }}]" name="description" class="form-control" rows="10">{{ old("description.$language->id") }}</textarea>
+                            <textarea name="description[{{ $language->id }}]" id="description-{{ $language->id }}" name="description" class="form-control" rows="10">{{ old("description.$language->id") }}</textarea>
                         </div>
                     @endforeach
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
