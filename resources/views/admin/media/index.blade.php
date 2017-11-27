@@ -14,7 +14,7 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-6 mb-4">
                             <div class="card">
                                 @if ($media->type == 'image') 
-                                    <img class="card-img-top" src="{{ 'img/cache/large/' . $media->filename }}" alt="">
+                                    <img class="card-img-top" src="{{ 'img/cache/large/media/' . $media->filename }}" alt="">
                                 @else
                                     <img class="card-img-top" src="{{ 'img/cache/large/mime-types/' . $media->ext . '.png' }}" alt="">
                                 @endif
