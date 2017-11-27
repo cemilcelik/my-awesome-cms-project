@@ -39,7 +39,16 @@ $factory->define(App\Admin::class, function (Faker\Generator $faker) {
 
 $factory->define(App\News::class, function (Faker\Generator $faker) {
     return [
-        'datetime' => $faker->dateTime(),
-        'active' => rand(0,1)
+        'datetime'  => $faker->dateTime(),
+        'active'    => rand(0,1)
+    ];
+});
+
+$factory->define(App\Media::class, function (Faker\Generator $faker) {
+    return [
+        'filename'  => $faker->image('public\storage\media', 640, 480, null, false),
+        'ext'       => 'jpg',
+        'type'      => 'image',
+        'active'    => 1
     ];
 });

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Admin;
 
 class AdminTableSeeder extends Seeder
 {
@@ -12,6 +11,8 @@ class AdminTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Admin::class, 10)->create();
+        DB::table('admin')->truncate();
+        
+        factory(App\Admin::class, 10)->create();
     }
 }
