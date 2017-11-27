@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Request;
 
+use Faker\Generator as FakerGenerator;
+use Faker\Factory as FakerFactory;
+
 class AppServiceProvider extends ServiceProvider
 {
     protected $providers = [
@@ -25,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
         if ($request->segment(1) != 'admin') {
             app()->setLocale($request->segment(1));
         }
+
+        $this->app->singleton(FakerGenerator::class, function () {
+            return FakerFactory::create('tr_TR');
+        });
     }
 
     /**
