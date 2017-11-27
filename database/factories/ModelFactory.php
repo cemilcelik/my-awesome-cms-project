@@ -22,3 +22,24 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Admin::class, function (Faker\Generator $faker) {
+    static $password;
+    [$name, $surname] = explode(' ', $faker->name);
+
+    return [
+        'name'      => $name,
+        'surname'   => $surname,
+        'email'     => $faker->unique()->safeEmail,
+        'password'  => $password ?: $password = bcrypt('secret'),
+        'remember_token' => str_random(10)
+    ];
+});
+
+$factory->define(App\News::class, function (Faker\Generator $faker) {
+    return [
+        'datetime' => $faker->dateTime(),
+        'active' => rand(0,1)
+    ];
+});
