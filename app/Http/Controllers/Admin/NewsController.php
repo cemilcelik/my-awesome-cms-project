@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use App\News;
 use App\Language;
-use Illuminate\Support\Facades\Validator;
+use App\Media;
 
 class NewsController extends Controller
 {
@@ -106,7 +107,9 @@ class NewsController extends Controller
 
         // todo : if not found
 
-        return view('admin.news.edit', compact('news'));
+        $medias = Media::all();
+
+        return view('admin.news.edit', compact('news', 'medias'));
     }
 
     /**
@@ -147,6 +150,11 @@ class NewsController extends Controller
             ];
             $news->languages()->updateExistingPivot($language_id, $data);
         }
+
+        // media table
+        $news->medias()->sync($news->id, $request->mediaIds);
+
+        dd($news);
 
         return redirect(route('news.index'))
             ->with('status', ['type' => 'success', 'message' => 'News is successfully update!']);

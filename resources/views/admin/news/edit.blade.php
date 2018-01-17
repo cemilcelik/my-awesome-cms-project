@@ -26,8 +26,21 @@
                         @endif
                         <h5>Description <sup>({{ $language->title }})</sup></h5>
                         <textarea name="description[{{ $language->id }}]" name="description" class="form-control" rows="10">{{ $language->pivot->description }}</textarea>
-                        <hr>
                     @endforeach
+                    <hr>
+                    <div class="row">
+                        @foreach ($medias as $i => $media)
+                            <div class="col-2">
+                                @if ($media->type == 'image')
+                                    <input type="checkbox" id="{{ 'image-' . $media->id }}" name="mediaIds[]" value="{{ $media->id }}">
+                                    <label for="{{ 'image-' . $media->id }}"><img src="{{ 'img/cache/large/media/' . $media->filename }}" class="img-fluid"></label>
+                                @else
+                                    <img src="{{ 'img/cache/large/media-types/' . $media->type . '.png' }}" class="img-fluid">
+                                @endif
+                            </div>
+                        @endforeach
+                    </div>
+                    <hr>
                     {{ method_field('put') }}
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="Save">
