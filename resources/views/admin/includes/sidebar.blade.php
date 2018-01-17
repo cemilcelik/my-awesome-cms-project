@@ -1,6 +1,6 @@
 <ul class="nav flex-column">
     <li class="nav-item">
-        <a class="nav-link active" href="{{ url('dashboard') }}">Dashboard</a>
+        <a class="nav-link active" href="{{ url('admin/dashboard') }}">Dashboard</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">News</a>
@@ -25,6 +25,6 @@
         </ul>
     </li>
     <li class="nav-item">
-        <a class="nav-link disabled" href="{{ url('admin/logout') }}">Çıkış</a>
+        <a class="nav-link" href="javascript:;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
     </li>
 </ul>

@@ -5,9 +5,8 @@
             <ul>
                 @foreach ($newsAll as $i => $news)
                     <li>
-                        <a href="{{ $news->url }}">
-                            {{ $news->language[0]->pivot->title }}
-                        </a>
+                        <div><a href="{{ $news->url }}">{{ $news->language[0]->pivot->title }}</a></div>
+                        <div>{{ Carbon::parse($news->created_at)->format('d-m-Y')}}</div>
                     </li>
                 @endforeach
             </ul>

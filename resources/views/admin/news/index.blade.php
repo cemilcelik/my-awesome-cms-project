@@ -10,9 +10,15 @@
                     </div>
                 @endif
                 <table class="table">
+                    <tr>
+                        <th>Title</th>
+                        <th>Created At</th>
+                        <th>Processes</th>
+                    </tr>
                     @forelse ($newsAll as $news)
                         <tr>
                             <td>{{ $news->language[0]->pivot->title }}</td>
+                            <td>{{ Carbon::parse($news->created_at)->format('d-m-Y') }}</td>
                             <td width="200">
                                 <form action="{{ route('news.destroy', ['id' => $news->id]) }}" method="post" class="form-inline">
                                     <div class="btn-group">
@@ -27,7 +33,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td>No records found.</td>
+                            <td colspan="3">No records found.</td>
                         </tr>
                     @endforelse
                 </table>

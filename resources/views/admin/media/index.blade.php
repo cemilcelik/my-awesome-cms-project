@@ -22,7 +22,7 @@
                                     <p class="card-text">{{ str_limit($media->language[0]->pivot->title, 20) }}</p>
                                     <form action="{{ route('media.destroy', $media->id) }}" method="post">
                                         <div class="btn-group">
-                                            <a href="#" class="btn btn-primary b-tooltip" title="Show"><i class="fa fa-search-plus"></i></a>
+                                            <a href="javascript:;" class="btn btn-primary b-tooltip" title="Show"><i class="fa fa-search-plus"></i></a>
                                             <a href="{{ route('media.edit', $media) }}" class="btn btn-warning b-tooltip" title="Edit"><i class="fa fa-pencil-square"></i></a>
                                             <button type="submit" class="btn btn-danger b-tooltip" title="Delete"><i class="fa fa-minus-square"></i></button>
                                         </div>

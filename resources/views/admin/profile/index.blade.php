@@ -4,7 +4,7 @@
     <section>
         <div class="row">
             <div class="col-sm-12 text-center">
-                { ADMIN > DASHBOARD AREA }
+                { ADMIN > PROFILE AREA }
             </div>
         </div>
     </section>

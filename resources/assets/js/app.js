@@ -60,5 +60,7 @@ $(function() {
 
     $('.simplelightbox a').simpleLightbox({});
 
+    tippy('.b-tooltip');
+
 });
 
