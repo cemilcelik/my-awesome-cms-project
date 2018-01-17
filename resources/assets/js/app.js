@@ -50,7 +50,7 @@ $(function() {
         });
     }
 
-    if ($('#description-1').length > 0) {
+    if ($('#description-2').length > 0) {
         var quill2 = new Quill("#description-2", {
             theme: 'snow'
         });

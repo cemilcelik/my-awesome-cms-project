@@ -39,7 +39,9 @@ class NewsController extends Controller
     {
         $languages = Language::all();
 
-        return view('admin.news.add', compact('languages'));
+        $medias = Media::all();
+
+        return view('admin.news.add', compact('languages', 'medias'));
     }
 
     /**
@@ -65,10 +67,13 @@ class NewsController extends Controller
         }
 
         $news = new News;
+        
+        // main table
         $news->datetime = $request->datetime;
         $news->active = 1;
         $news->save();
 
+        // intermediate table
         foreach ($request->title as $language_id => $value) {
             $data = [
                 'title' => $request->title[ $language_id ],
@@ -76,6 +81,9 @@ class NewsController extends Controller
             ];
             $news->languages()->attach($language_id, $data);
         }
+
+        // mediable table
+        $news->medias()->sync($request->mediaIds);
 
         return redirect(route('news.index'))
             ->with('status', ['type' => 'success', 'message' => 'News is successfully create!']);
