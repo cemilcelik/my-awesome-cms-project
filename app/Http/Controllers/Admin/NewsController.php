@@ -104,10 +104,16 @@ class NewsController extends Controller
     public function edit($id)
     {
         $news = News::find($id);
+        $news_medias = $news->medias;
 
         // todo : if not found
 
         $medias = Media::all();
+
+        // inject checked ones
+        $medias->each(function($item, $key) use ($news_medias) {
+            $item->isChecked = $news_medias->contains($item) ? 'checked' : '';
+        });
 
         return view('admin.news.edit', compact('news', 'medias'));
     }
@@ -151,10 +157,8 @@ class NewsController extends Controller
             $news->languages()->updateExistingPivot($language_id, $data);
         }
 
-        // media table
-        $news->medias()->sync($news->id, $request->mediaIds);
-
-        dd($news);
+        // mediable table
+        $news->medias()->sync($request->mediaIds);
 
         return redirect(route('news.index'))
             ->with('status', ['type' => 'success', 'message' => 'News is successfully update!']);
