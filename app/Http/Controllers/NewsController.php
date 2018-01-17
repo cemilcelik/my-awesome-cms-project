@@ -33,7 +33,8 @@ class NewsController extends Controller
         $news = News::findOrFail($id); // auto-handler exception
 
         $newsLanguage = $news->language;
+        $newsMedias = $news->medias;
 
-        return view('news.show', compact('news', 'newsLanguage'));
+        return view('news.show', compact('news', 'newsLanguage', 'newsMedias'));
     }
 }
