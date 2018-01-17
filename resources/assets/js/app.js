@@ -29,6 +29,8 @@ window.tippy = require('tippy.js');
 
 window.Quill = require('quill');
 
+require('simplelightbox');
+
 $(function() {
 
     console.log("JQuery loaded...");
@@ -55,6 +57,8 @@ $(function() {
             theme: 'snow'
         });
     }
+
+    $('.simplelightbox a').simpleLightbox({});
 
 });
 

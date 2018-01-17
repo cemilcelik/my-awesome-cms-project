@@ -17,6 +17,10 @@
 @import "~quill/dist/quill.core.css";
 @import "~quill/dist/quill.snow.css";
 
+// SimpleLightbox
+@import "./_simplelightbox-variables.scss";
+@import "~simplelightbox/dist/simplelightbox.scss";
+
 // Custom Styles
 .main{ padding: 50px 0; }
 
