@@ -147,7 +147,7 @@ class MediaController extends Controller
         // todo : different control of filesize for image, file and video types
 
         $rules = array(
-            'filename.*' => 'required|mimes:jpg,png,pdf,mp4|max:5000'
+            'filename.*' => 'required|max:5000'
         );
 
         $validator = Validator::make($request->all(), $rules);

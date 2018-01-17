@@ -9,7 +9,7 @@
                         <label for="filename" class="col-3 col-form-label">File</label>
                         <div class="col-lg-4 col-6">
                             <div class="card">
-                                <img class="card-img-top" src="{{ 'img/cache/large/media/' . $media->filename }}" alt="">
+                                <img class="card-img-top" src="{{ 'img/cache/large/' . $media->filename }}" alt="">
                             </div>
                         </div>
                     </div>

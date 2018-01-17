@@ -14,8 +14,8 @@
                     <div class="row" >
                         @foreach ($newsMedias as $i => $media)
                             <div class="col-2">
-                                <a href="{{ 'img/cache/large/media/' . $media->filename }}">
-                                    <img src="{{ 'img/cache/large/media/' . $media->filename }}" class="img-fluid">
+                                <a href="{{ 'img/cache/large/' . $media->filename }}">
+                                    <img src="{{ 'img/cache/large/' . $media->filename }}" class="img-fluid">
                                 </a>
                             </div>
                         @endforeach

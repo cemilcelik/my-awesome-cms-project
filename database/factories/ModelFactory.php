@@ -46,7 +46,7 @@ $factory->define(App\News::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Media::class, function (Faker\Generator $faker) {
     return [
-        'filename'  => $faker->image('public\storage\media', 640, 480, null, false),
+        'filename'  => 'media\\' . $faker->image('public\storage\media', 640, 480, null, false),
         'ext'       => 'jpg',
         'type'      => 'image',
         'active'    => 1
