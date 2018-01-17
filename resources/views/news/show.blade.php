@@ -10,14 +10,16 @@
 
             @if ($newsMedias->count() > 0)
                 <h3>{{ __('common.news_medias') }}</h3>
-                <div class="row" class="simplelightbox">
-                    @foreach ($newsMedias as $i => $media)
-                        <div class="col-2">
-                            <a href="{{ 'img/cache/large/media/' . $media->filename }}">
-                                <img src="{{ 'img/cache/large/media/' . $media->filename }}" class="img-fluid">
-                            </a>
-                        </div>
-                    @endforeach
+                <div class="simplelightbox">
+                    <div class="row" >
+                        @foreach ($newsMedias as $i => $media)
+                            <div class="col-2">
+                                <a href="{{ 'img/cache/large/media/' . $media->filename }}">
+                                    <img src="{{ 'img/cache/large/media/' . $media->filename }}" class="img-fluid">
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             @endif
         </div>
