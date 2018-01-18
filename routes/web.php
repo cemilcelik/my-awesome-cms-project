@@ -19,6 +19,13 @@ Route::get(trans('routes.news'), ['as' => 'news', 'uses' => 'NewsController@inde
 Route::get(trans('routes.news').'/{id}/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
 Route::get(trans('contact'), ['as' => 'contact', 'uses' => 'ContactController@index']);
 
+Route::post('contact-form/send', 'FeedbackController@sendContactMessage')->name('contact-form-send');
+// Mail Test
+Route::get('show-contact-message-mail', function() {
+    $feedback = \App\Feedback::find(1);
+    return new \App\Mail\ContactMessageSended($feedback);
+});
+
 Route::get('lang/{language}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 
 Auth::routes();

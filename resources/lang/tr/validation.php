@@ -117,6 +117,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name_surname'  => 'Ad Soyad',
+        'email'         => 'E-Posta',
+        'message'       => 'Mesaj',
+    ],
 
 ];
