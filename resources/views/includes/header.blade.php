@@ -8,20 +8,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('home') }}">{{ __('common.mainmenu.home') }} <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                    <a class="nav-link" href="{{ route('about') }}">{{ __('common.mainmenu.about_us') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('news') }}">News</a>
+                    <a class="nav-link" href="{{ route('news') }}">{{ __('common.mainmenu.news') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                    <a class="nav-link" href="{{ route('contact') }}">{{ __('common.mainmenu.contact') }}</a>
                 </li>
                 @if (Auth::check())
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('auth/profile') }}">Profile</a>
+                        <a class="nav-link" href="{{ url('auth/profile') }}">{{ __('common.mainmenu.profile') }}</a>
                     </li>
                 @endif
                 <li class="nav-item">
@@ -34,8 +34,12 @@
                             {{ csrf_field() }}
                         </form>
                     @else
-                        <a class="nav-link" href="login">Login</a>
+                        <a class="nav-link" href="login">{{ __('common.mainmenu.login') }}</a>
                     @endif
+                </li>
+                <li>
+                    <a href="{{ route('lang.switch', 'tr') }}">TR</a> - 
+                    <a href="{{ route('lang.switch', 'en') }}">EN</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
