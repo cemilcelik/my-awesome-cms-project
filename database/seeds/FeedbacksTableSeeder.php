@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Feedback;
 
-class FeedbackTableSeeder extends Seeder
+class FeedbacksTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class FeedbackTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('feedback')->truncate();
+        DB::table('feedbacks')->truncate();
 
         factory(Feedback::class, 50)->create();
     }
