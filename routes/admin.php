@@ -45,4 +45,5 @@ Route::middleware(['auth:admin']) // middleware:guard
         DELETE	    /news/{news}	        destroy	    news.destroy
         */
         Route::resource('media', 'MediaController');
+        Route::resource('feedback', 'FeedbackController', ['only' => ['index', 'show', 'destroy']]);
     });

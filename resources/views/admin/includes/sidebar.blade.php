@@ -25,6 +25,14 @@
         </ul>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="#">Feedback</a>
+        <ul>
+            <li>
+                <a class="nav-link" href="{{ route('feedback.index') }}">Feedback List</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="javascript:;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
     </li>
 </ul>
