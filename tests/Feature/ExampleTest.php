@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\Feedback;
 
 class ExampleTest extends TestCase
 {
@@ -18,6 +19,21 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
+
+    public function testAssertRedirect()
+    {
+        $this->get('/')->assertStatus(302)->assertRedirect('/en');
+    }
+
+    public function testAssertGetAdminLogin()
+    {
+        $this->get('/admin/login')->assertSee('Login');
+    }
+
+    // public function testAssertGetHome()
+    // {
+    //     $this->get('/en/home')->assertSee('Featured');
+    // }
 }
