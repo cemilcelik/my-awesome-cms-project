@@ -32,8 +32,8 @@ class ExampleTest extends TestCase
         $this->get('/admin/login')->assertSee('Login');
     }
 
-    // public function testAssertGetHome()
-    // {
-    //     $this->get('/en/home')->assertSee('Featured');
-    // }
+    public function testAssertGetHome()
+    {
+        $this->get('/home')->assertRedirect('/en/home');
+    }
 }
