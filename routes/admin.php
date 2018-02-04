@@ -32,7 +32,6 @@ Route::middleware(['auth:admin']) // middleware:guard
         Route::get('dashboard', 'AdminController@index');
         Route::get('profile', 'AdminController@profile');
 
-        Route::resource('news', 'NewsController');
         /*
         Verb	    URI	                    Action	    Route Name
         ----        ---                     ------      ----------
@@ -44,6 +43,9 @@ Route::middleware(['auth:admin']) // middleware:guard
         PUT/PATCH	/news/{news}	        update	    news.update
         DELETE	    /news/{news}	        destroy	    news.destroy
         */
+        Route::resource('news', 'NewsController');
         Route::resource('media', 'MediaController');
         Route::resource('feedback', 'FeedbackController', ['only' => ['index', 'show', 'destroy']]);
-    });
+        Route::resource('admin', 'AdminController', ['except' => ['show']]);
+    })
+;

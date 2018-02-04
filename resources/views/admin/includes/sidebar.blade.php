@@ -33,6 +33,17 @@
         </ul>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="#">User</a>
+        <ul>
+            <li>
+                <a class="nav-link" href="{{ route('admin.index') }}">Admin Add</a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ route('admin.index') }}">Admin List</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="javascript:;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
     </li>
 </ul>
