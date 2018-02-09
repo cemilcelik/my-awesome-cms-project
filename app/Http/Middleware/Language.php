@@ -16,20 +16,13 @@ class Language
      */
     public function handle($request, Closure $next)
     {
-        if ($request->segment(1) != 'admin') {
-
-            if ( ! array_key_exists($request->segment(1), config('app.locales'))) {
-
-                $segments = $request->segments();
-
-                $segments = array_prepend($segments, config('app.fallback_locale'));
-
-                // makes redirection
-                return redirect()->to(implode('/', $segments));
-
-            }
-
-        }
+        // if ($request->segment(1) != 'admin') {
+        //     if ( ! array_key_exists($request->segment(1), config('app.locales'))) {
+        //         $segments = $request->segments();
+        //         $segments = array_prepend($segments, config('app.fallback_locale'));
+        //         return redirect()->to(implode('/', $segments));
+        //     }
+        // }
 
         return $next($request);
     }

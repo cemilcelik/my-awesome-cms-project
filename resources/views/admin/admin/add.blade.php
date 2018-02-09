@@ -4,11 +4,11 @@
     <section>
         <div class="row">
             <div class="col-sm-12 text-left">
-                <h1>Edit Admin</h1>
-                <form action="{{ route('admin.update', $admin->adminId) }}" method="post">
+                <h1>Add Admin</h1>
+                <form action="{{ route('admin.store') }}" method="post" id="form">
                     <div class="form-group">
                         <label class="control-label">Name</label>
-                        <input type="text" name="name" id="name" class="form-control" required autofocus value="{{ $admin->name }}">
+                        <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required>
                     </div>
                     @if ($errors->has("name"))
                         <div class="alert alert-danger">
@@ -17,7 +17,7 @@
                     @endif
                     <div class="form-group">
                         <label class="control-label">Surname</label>
-                        <input type="text" name="surname" id="surname" class="form-control" required value="{{ $admin->surname }}">
+                        <input type="text" name="surname" id="surname" class="form-control" value="{{ old('surname') }}" required>
                     </div>
                     @if ($errors->has("surname"))
                         <div class="alert alert-danger">
@@ -26,7 +26,7 @@
                     @endif
                     <div class="form-group">
                         <label class="control-label">E-Mail</label>
-                        <input type="text" name="email" id="email" class="form-control email" required value="{{ $admin->email }}">
+                        <input type="text" name="email" id="email" class="form-control email" value="{{ old('email') }}" required>
                     </div>
                     @if ($errors->has("email"))
                         <div class="alert alert-danger">
@@ -35,7 +35,7 @@
                     @endif
                     <div class="form-group">
                         <label class="control-label">Password</label>
-                        <input type="password" name="password" id="password" class="form-control">
+                        <input type="password" name="password" id="password" class="form-control" value="{{ old('password') }}" required>
                     </div>
                     @if ($errors->has("password"))
                         <div class="alert alert-danger">
@@ -48,10 +48,9 @@
                         <select name="role_id" id="role_id" class="custom-select" required>
                             <option value="">Please Select</option>
                             @foreach ($roles as $role)
-                                <option value="{{ $role->id }}" {{ ($admin->roles()->first() && $role->id == $admin->roles()->first()->id) ? 'selected' : '' }}>
-                                    {{ $role->display_name }}
-                                </option>
+                                <option value="{{ $role->id }}" {{ ($role->id == old('role_id')) ? 'selected' : '' }}>{{ $role->display_name }}</option>
                             @endforeach
+                            <option value="999">Fake</option>
                         </select>
                     </div>
                     @if ($errors->has("role_id"))
@@ -60,11 +59,10 @@
                         </div>
                     @endif
                     <hr>
-                    {{ method_field('put') }}
-                    {{ csrf_field() }}
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="submit" class="btn btn-primary" value="Save">
                 </form>
             </div>
         </div>
     </section>
-@endsection
+@stop

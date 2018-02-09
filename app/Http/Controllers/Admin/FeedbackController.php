@@ -8,6 +8,11 @@ use App\Feedback;
 
 class FeedbackController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:admin|feedback-manager');
+    }
+
     public function index()
     {
         $feedbacks = Feedback::paginate(5);

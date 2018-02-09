@@ -28,9 +28,9 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::middleware(['auth:admin']) // middleware:guard
     ->group(function() {
-        Route::get('/', 'AdminController@index');
-        Route::get('dashboard', 'AdminController@index');
-        Route::get('profile', 'AdminController@profile');
+        Route::get('/', 'DashboardController@index');
+        Route::get('dashboard', 'DashboardController@index');
+        Route::get('profile', 'DashboardController@profile');
 
         /*
         Verb	    URI	                    Action	    Route Name
@@ -47,5 +47,7 @@ Route::middleware(['auth:admin']) // middleware:guard
         Route::resource('media', 'MediaController');
         Route::resource('feedback', 'FeedbackController', ['only' => ['index', 'show', 'destroy']]);
         Route::resource('admin', 'AdminController', ['except' => ['show']]);
+        Route::resource('role', 'RoleController', ['except' => 'show']);
+        Route::resource('permission', 'PermissionController', ['except' => 'show']);
     })
 ;

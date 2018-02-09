@@ -118,9 +118,11 @@ return [
     */
 
     'attributes' => [
-        'name_surname'  => 'Ad Soyad',
-        'email'         => 'E-Posta',
-        'message'       => 'Mesaj',
+        'name_surname'  => 'ad soyad',
+        'email'         => 'e-posta',
+        'message'       => 'mesaj',
+        'title.1'       => 'başlık (tr)', // @todo make dynamic
+        'title.2'       => 'başlık (en)',
     ],
 
 ];

@@ -3,14 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Admin\NewsRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use App\News;
 use App\Language;
 use App\Media;
+use Auth;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:admin|news-manager');
+    }
+
     /**
     * Display a listing of the resource.
     *
@@ -21,11 +27,6 @@ class NewsController extends Controller
         $code = config('app.locale');
 
         $newsAll = News::with('language')->get();
-        /*
-        $newsAll = News::active()->with(['languages' => function ($query) use ($code) {
-            $query->where('code', $code);
-        }])->get();
-        */
 
         return view('admin.news.index', compact('newsAll'));
     }
@@ -37,6 +38,9 @@ class NewsController extends Controller
     */
     public function create()
     {
+        if ( ! Auth::user()->can('store-news')) 
+            return redirect(route('news.index'))->with('status', ['type' => 'danger', 'message' => 'Access denied.']);
+
         $languages = Language::all();
 
         $medias = Media::all();
@@ -47,24 +51,16 @@ class NewsController extends Controller
     /**
     * Store a newly created resource in storage.
     *
-    * @param  \Illuminate\Http\Request  $request
+    * @param  \App\Http\Request\Admin\NewsRequest  $request
     * @return \Illuminate\Http\Response
     */
-    public function store(Request $request)
+    public function store(NewsRequest $request)
     {
-        if ( ! $request->isMethod('post')) {
-            return redirect(route('news.index'))
-                ->with('status', ['type' => 'danger', 'message' => 'Invalid request method.']);
-        }
+        if ( ! $request->isMethod('post')) 
+            return redirect(route('news.index'))->with('status', ['type' => 'danger', 'message' => 'Invalid request method.']);
 
-        // validate
-        $validator = $this->_validate($request);
-
-        if ($validator->fails()) {
-            return redirect(route('news.create'))
-                ->withErrors($validator)
-                ->withInput();
-        }
+        if ( ! Auth::user()->can('store-news')) 
+            return redirect(route('news.index'))->with('status', ['type' => 'danger', 'message' => 'Access denied.']);   
 
         $news = new News;
         
@@ -85,9 +81,7 @@ class NewsController extends Controller
         // mediable table
         $news->medias()->sync($request->mediaIds);
 
-        return redirect(route('news.index'))
-            ->with('status', ['type' => 'success', 'message' => 'News is successfully create!']);
-
+        return redirect(route('news.index'))->with('status', ['type' => 'success', 'message' => 'News is successfully create!']);
     }
 
     /**
@@ -96,10 +90,8 @@ class NewsController extends Controller
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function show($id)
+    public function show(News $news)
     {
-        $news = News::find($id);
-        
         return view('admin.news.show', compact('news'));
     }
 
@@ -109,9 +101,11 @@ class NewsController extends Controller
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function edit($id)
+    public function edit(News $news)
     {
-        $news = News::find($id);
+        if ( ! Auth::user()->can('update-news')) 
+            return redirect(route('news.index'))->with('status', ['type' => 'danger', 'message' => 'Access denied.']);
+        
         $news_medias = $news->medias;
 
         // todo : if not found
@@ -133,22 +127,14 @@ class NewsController extends Controller
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function update(Request $request, $id)
+    public function update(NewsRequest $request, $id)
     {
         // request type control
-        if ( ! $request->isMethod('put')) {
-            return redirect(route('news.index'))
-                ->with('status', ['type' => 'danger', 'message' => 'Invalid request method.']);
-        }
+        if ( ! $request->isMethod('put')) 
+            return redirect(route('news.index'))->with('status', ['type' => 'danger', 'message' => 'Invalid request method.']);
 
-        // validate
-        $validator = $this->_validate($request);
-
-        if ($validator->fails()) {
-            return redirect(route('news.edit', ['id' => $id]))
-                ->withErrors($validator)
-                ->withInput();
-        }
+        if ( ! Auth::user()->can('update-news')) 
+            return redirect(route('news.index'))->with('status', ['type' => 'danger', 'message' => 'Access denied.']);
 
         $news = News::find($id);
         
@@ -168,8 +154,7 @@ class NewsController extends Controller
         // mediable table
         $news->medias()->sync($request->mediaIds);
 
-        return redirect(route('news.index'))
-            ->with('status', ['type' => 'success', 'message' => 'News is successfully update!']);
+        return redirect(route('news.index'))->with('status', ['type' => 'success', 'message' => 'News is successfully update!']);
     }
 
     /**
@@ -178,29 +163,16 @@ class NewsController extends Controller
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function destroy(Request $request, $id)
+    public function destroy(News $news, Request $request)
     {
-        if ( ! $request->isMethod('delete')) {
-            return redirect(route('news.index'))
-                ->with('status', ['type' => 'danger', 'message' => 'Invalid request method.']);
-        }
+        if ( ! $request->isMethod('delete')) 
+            return redirect(route('news.index'))->with('status', ['type' => 'danger', 'message' => 'Invalid request method.']);
+        
+        if ( ! Auth::user()->can('delete-news')) 
+            return redirect(route('news.index'))->with('status', ['type' => 'danger', 'message' => 'Access denied.']);
 
-        News::destroy($id);
+        $news->delete();
 
-        return redirect(route('news.index'))
-            ->with('status', ['type' => 'success', 'message' => 'News is successfully delete!']);
-    }
-
-    private function _validate(Request $request) {
-
-        $rules = ['datetime' => 'required|date_format:Y-m-d H:i:s'];
-        foreach ($request->title as $language_id => $value) {
-            $rules['title.' . $language_id]         = 'required|string|min:5|max:255';
-        }
-
-        $validator = Validator::make($request->all(), $rules);
-
-        return $validator;
-
+        return redirect(route('news.index'))->with('status', ['type' => 'success', 'message' => 'News is successfully delete!']);
     }
 }

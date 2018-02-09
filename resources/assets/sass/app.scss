@@ -28,6 +28,8 @@
 
 .navbar-brand{ padding-top: 15px; padding-bottom: 15px; }
 
+.custom-select{ height: inherit !important; }
+
 // Media Queries
 @include media-breakpoint-up(xs) {
     body {background-color: $gray-500; }

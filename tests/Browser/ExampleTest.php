@@ -8,6 +8,8 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ExampleTest extends DuskTestCase
 {
+    use DatabaseMigrations;
+    
     /**
      * A basic browser test example.
      *
@@ -22,22 +24,22 @@ class ExampleTest extends DuskTestCase
         });
     }
 
-    public function testAboutUsPageLoad()
-    {
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/en/about')
-                ->assertSee('about us')
-            ;
-        });
-    }
+    // public function testAboutUsPageLoad()
+    // {
+    //     $this->browse(function (Browser $browser) {
+    //         $browser->visit('/en/about')
+    //             ->assertSee('about us')
+    //         ;
+    //     });
+    // }
 
-    public function testContactPageLoad()
-    {
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/en/contact')
-                ->assertSee('Contact')
-            ;
-        });
-    }
+    // public function testContactPageLoad()
+    // {
+    //     $this->browse(function (Browser $browser) {
+    //         $browser->visit('/en/contact')
+    //             ->assertSee('Contact')
+    //         ;
+    //     });
+    // }
     
 }

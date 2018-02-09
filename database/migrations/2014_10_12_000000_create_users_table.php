@@ -30,6 +30,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('remember_token');
+        Schema::dropIfExists('users');
     }
 }

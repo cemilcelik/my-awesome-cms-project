@@ -7,59 +7,119 @@ class PermissionsTableSeeder extends Seeder
 {
     public $permissions = [
         [
-            'name'          => 'News List',
-            'display_name'  => 'news.index',
+            'name'          => 'index-news',
+            'display_name'  => 'News List',
             'description'   => 'List the news.'
         ],
         [
-            'name'          => 'News Store',
-            'display_name'  => 'news.store',
+            'name'          => 'store-news',
+            'display_name'  => 'News Store',
             'description'   => 'Store the news.'
         ],
         [
-            'name'          => 'News Update',
-            'display_name'  => 'news.update',
+            'name'          => 'update-news',
+            'display_name'  => 'News Update',
             'description'   => 'Update the news.'
         ],
         [
-            'name'          => 'News Delete',
-            'display_name'  => 'news.delete',
+            'name'          => 'delete-news',
+            'display_name'  => 'News Delete',
             'description'   => 'Delete the news.'
         ],
         [
-            'name'          => 'Media List',
-            'display_name'  => 'media.index',
+            'name'          => 'index-media',
+            'display_name'  => 'Media List',
             'description'   => 'List the media.'
         ],
         [
-            'name'          => 'Media Store',
-            'display_name'  => 'media.store',
+            'name'          => 'store-media',
+            'display_name'  => 'Media Store',
             'description'   => 'Store the media.'
         ],
         [
-            'name'          => 'Media Update',
-            'display_name'  => 'media.update',
+            'name'          => 'update-media',
+            'display_name'  => 'Media Update',
             'description'   => 'Update the media.'
         ],
         [
-            'name'          => 'Media Delete',
-            'display_name'  => 'media.delete',
+            'name'          => 'delete-media',
+            'display_name'  => 'Media Delete',
             'description'   => 'Delete the media.'
         ],
         [
-            'name'          => 'Feedback List',
-            'display_name'  => 'feedback.index',
+            'name'          => 'index-feedback',
+            'display_name'  => 'Feedback List',
             'description'   => 'List the feedback.'
         ],
         [
-            'name'          => 'Feedback Show',
-            'display_name'  => 'feedback.show',
+            'name'          => 'show-feedback',
+            'display_name'  => 'Feedback Show',
             'description'   => 'Show the feedback.'
         ],
         [
-            'name'          => 'Feedback Delete',
-            'display_name'  => 'feedback.delete',
+            'name'          => 'delete-feedback',
+            'display_name'  => 'Feedback Delete',
             'description'   => 'Delete the feedback.'
+        ],
+        [
+            'name'          => 'index-admin',
+            'display_name'  => 'Admin List',
+            'description'   => 'List the admin.'
+        ],
+        [
+            'name'          => 'store-admin',
+            'display_name'  => 'Admin Store',
+            'description'   => 'Store the admin.'
+        ],
+        [
+            'name'          => 'update-admin',
+            'display_name'  => 'Admin Update',
+            'description'   => 'Update the admin.'
+        ],
+        [
+            'name'          => 'delete-admin',
+            'display_name'  => 'Admin Delete',
+            'description'   => 'Delete the admin.'
+        ],
+        [
+            'name'          => 'index-permission',
+            'display_name'  => 'Permission List',
+            'description'   => 'List the permission.'
+        ],
+        [
+            'name'          => 'store-permission',
+            'display_name'  => 'Permission Store',
+            'description'   => 'Store the permission.'
+        ],
+        [
+            'name'          => 'update-permission',
+            'display_name'  => 'Permission Update',
+            'description'   => 'Update the permission.'
+        ],
+        [
+            'name'          => 'delete-permission',
+            'display_name'  => 'Permission Delete',
+            'description'   => 'Delete the permission.'
+        ],
+        [
+            'name'          => 'index-role',
+            'display_name'  => 'Role List',
+            'description'   => 'List the role.'
+        ],
+        [
+            'name'          => 'store-role',
+            'display_name'  => 'Role Store',
+            'description'   => 'Store the role.'
+        ],
+        [
+            'name'          => 'update-role',
+            'display_name'  => 'Role Update',
+            'description'   => 'Update the role.'
+        ],
+        [
+            'name'          => 'delete-role',
+            'display_name'  => 'Role Delete',
+            'description'   => 'Delete the role.'
         ],
     ];
 

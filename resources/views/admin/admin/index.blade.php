@@ -9,11 +9,13 @@
                         {{ session('status')['message'] }}
                     </div>
                 @endif
-                <table class="table">
+                <h1>List Admins</h1>
+                <table class="table table-hover">
                     <tr>
                         <th>Name</th>
                         <th>Surname</th>
                         <th>E-Mail</th>
+                        <th>Role</th>
                         <th>Created At</th>
                         <th>Process</th>
                     </tr>
@@ -22,6 +24,7 @@
                             <td>{{ $admin->name }}</td>
                             <td>{{ $admin->surname  }}</td>
                             <td>{{ $admin->email  }}</td>
+                            <td>{{ $admin->roles()->first() ? $admin->roles()->first()->display_name : '-' }}</td>
                             <td>{{ $admin->created_at  }}</td>
                             <td>
                                 <form action="{{ route('admin.destroy', $admin) }}" method="post" class="form-inline">

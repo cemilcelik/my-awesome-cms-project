@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Validator;
 
 class MediaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:admin|media-manager');
+    }
+
     /**
      * Display a listing of the resource.
      *

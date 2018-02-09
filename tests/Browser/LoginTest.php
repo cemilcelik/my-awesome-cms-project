@@ -9,23 +9,44 @@ use App\User;
 
 class LoginTest extends DuskTestCase
 {
+    use DatabaseMigrations;
+
     /**
-     * A Dusk test example.
-     *
-     * @return void
+     * @test
+     * @group user_login
      */
-    public function testLoginPageLoginAndRedirect()
+    public function login_page_login_and_redirect()
     {
-        $user = factory(User::class)->create([
-            'email' => 'john@doe.com'
+        $user = User::create([
+            'name' => 'John Doe',
+            'email' => 'john@doe.com',
+            'password' => bcrypt('secret')
         ]);
 
         $this->browse(function (Browser $browser) use ($user) {
-            $browser->visit('/login')
+            $browser
+                ->visit('/login')
                 ->type('email', $user->email)
                 ->type('password', 'secret')
                 ->press('Login')
                 ->assertPathIs('/en/home')
+            ;
+        });
+    }
+
+    /**
+     * @test
+     * @group login_as
+     */
+    public function login_as_function()
+    {
+        $user = factory(User::class)->create();
+
+        $this->browse(function(Browser $browser) use ($user) {
+            $browser
+                ->loginAs($user)
+                ->visit('/home')
+                ->assertSee('Featured')
             ;
         });
     }

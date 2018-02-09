@@ -25,9 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Request $request)
     {
-        if ($request->segment(1) != 'admin') {
-            app()->setLocale($request->segment(1));
-        }
+        // if ($request->segment(1) != 'admin') {
+        //     app()->setLocale($request->segment(1));
+        // }
 
         $this->app->singleton(FakerGenerator::class, function () {
             return FakerFactory::create('tr_TR');

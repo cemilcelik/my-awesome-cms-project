@@ -7,7 +7,7 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,7 +33,7 @@ require('simplelightbox');
 
 $(function() {
 
-    console.log("JQuery loaded...");
+    // console.log("JQuery loaded...");
     
     $('#form').validate({
         rules: {

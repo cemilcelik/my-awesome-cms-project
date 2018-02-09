@@ -117,9 +117,11 @@ return [
     */
 
     'attributes' => [
-        'name_surname'  => 'Name Surname',
-        'email'         => 'E-Mail',
-        'message'       => 'Message',
+        'name_surname'  => 'name surname',
+        'email'         => 'e-mail',
+        'message'       => 'message', 
+        'title.1'       => 'title (tr)', // @todo make dynamic
+        'title.2'       => 'title (en)',
     ],
 
 ];

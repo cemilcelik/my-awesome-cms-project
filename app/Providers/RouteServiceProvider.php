@@ -39,13 +39,9 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
 
         if (Request::segment(1) == 'admin') {
-
             $this->mapAdminRoutes();
-
         }else{
-
             $this->mapWebRoutes();
-            
         }
         
     }
@@ -61,10 +57,10 @@ class RouteServiceProvider extends ServiceProvider
     {
         $locale = Request::segment(1);
 
-        Route::prefix($locale)
+        Route::middleware('web')
             ->namespace($this->namespace)
-            ->middleware('web')
-            ->group(base_path('routes/web.php'));
+            ->group(base_path('routes/web.php'))
+        ;
     }
 
     /**
@@ -79,7 +75,8 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('api')
              ->middleware('api')
              ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+             ->group(base_path('routes/api.php'))
+        ;
     }
 
     /**
@@ -94,6 +91,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('admin')
             ->middleware('web')
             ->namespace($this->namespace . '\Admin')
-            ->group(base_path('routes/admin.php'));
+            ->group(base_path('routes/admin.php'))
+        ;
     }
 }

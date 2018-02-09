@@ -37,6 +37,7 @@ $factory->define(App\Admin::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\News::class, function (Faker\Generator $faker) {
     return [
         'datetime'  => $faker->dateTime(),
@@ -44,11 +45,21 @@ $factory->define(App\News::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Media::class, function (Faker\Generator $faker) {
     return [
         'filename'  => 'media\\' . $faker->image('public\storage\media', 640, 480, null, false),
         'ext'       => 'jpg',
         'type'      => 'image',
         'active'    => 1
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Feedback::class, function (Faker\Generator $faker) {
+    return [
+        'name_surname'  => $faker->name,
+        'email'         => $faker->unique()->safeEmail,
+        'message'       => $faker->paragraph
     ];
 });
