@@ -26,7 +26,7 @@ class NewsController extends Controller
     {
         $code = config('app.locale');
 
-        $newsAll = News::with('language')->get();
+        $newsAll = News::with('language')->sort(['created_at' => 'desc'])->get();
 
         return view('admin.news.index', compact('newsAll'));
     }

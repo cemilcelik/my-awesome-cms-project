@@ -16,3 +16,5 @@ launch.json
 # generated files
 /public/css/*
 /public/js/*
+
+.env.dusk.local
