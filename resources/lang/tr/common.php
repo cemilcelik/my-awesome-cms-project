@@ -12,6 +12,9 @@ return [
     ],
     'name_surname'  => 'Ad Soyad',
     'email'         => 'E-Posta',
+    'country'       => 'Ülke',
+    'city'          => 'Şehir',
+    'town'          => 'İlçe',
     'message'       => 'Mesaj',
     'send'          => 'Gönder',
     'feedback' => [

@@ -41,3 +41,6 @@ Auth::routes();
 // $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 // $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 // $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+Route::get('city', 'CityController@index')->name('city.index');
+Route::get('town', 'TownController@index')->name('town.index');

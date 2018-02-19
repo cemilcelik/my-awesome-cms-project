@@ -12,6 +12,9 @@ return [
     ],
     'name_surname'  => 'Name Surname',
     'email'         => 'E-Mail',
+    'country'       => 'Country',
+    'city'          => 'City',
+    'town'          => 'Town',
     'message'       => 'Message',
     'send'          => 'Send',
     'feedback' => [

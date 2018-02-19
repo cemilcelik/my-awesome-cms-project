@@ -45,6 +45,14 @@
                     @endif
                 </div>
                 <div class="form-group">
+                    <label for="country">{{ __('common.city') }}</label>
+                    <cities />
+                </div>
+                <div class="form-group">
+                    <label for="country">{{ __('common.town') }}</label>
+                    <towns />
+                </div>
+                <div class="form-group">
                     <label for="message">{{ __('common.message') }}</label>
                     <textarea class="form-control" name="message" id="message" cols="30" rows="5">{{ old('message') }}</textarea>
                     @if ($errors->has('message'))
