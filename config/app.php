@@ -167,6 +167,8 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -176,9 +178,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        Intervention\Image\ImageServiceProvider::class,
-        Zizaco\Entrust\EntrustServiceProvider::class,
+        // Custom Ones
+        App\Providers\ConfigServiceProvider::class,
     ],
 
     /*

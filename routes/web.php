@@ -41,7 +41,5 @@ Route::get('show-contact-message-mail', function() {
     return new \App\Mail\ContactMessageSended($feedback);
 });
 
-Route::get('lang/{language}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
-
 Route::get('city', 'CityController@index')->name('city.index');
 Route::get('town', 'TownController@index')->name('town.index');

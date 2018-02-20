@@ -37,11 +37,14 @@
                         <a class="nav-link" href="login">{{ __('common.mainmenu.login') }}</a>
                     @endif
                 </li>
-                <li>
-                    <a href="{{ route('lang.switch', 'tr') }}">TR</a> - 
-                    <a href="{{ route('lang.switch', 'en') }}">EN</a>
-                </li>
-            </ul>
+                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li class="nav-item">
+                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="nav-link">
+                            {{ $properties['native'] }}
+                        </a>
+                    </li>
+                @endforeach
+                </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
