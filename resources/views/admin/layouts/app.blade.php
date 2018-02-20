@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div id="app" class="container">
 
         <header class="row">
             @include('admin.includes.header')

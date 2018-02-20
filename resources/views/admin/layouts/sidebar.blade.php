@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <div class="container-fluid">
+    <div id="app" class="container-fluid">
 
         <header class="row">
             @include('admin.includes.header')
@@ -29,9 +29,9 @@
             @include('admin.includes.footer')
         </footer>
 
-        @include('admin.includes.foot')
-
     </div>
+
+    @include('admin.includes.foot')
 
 </body>
 </html>
