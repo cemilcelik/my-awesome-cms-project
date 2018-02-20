@@ -15,7 +15,7 @@ export default {
         }
     },
     created() {
-        EventBus.$on('update-towns', city_id => {
+        EventBus.$on('city-change', city_id => {
             this.getTowns(city_id);
         });
     },

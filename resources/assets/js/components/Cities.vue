@@ -24,7 +24,7 @@ export default {
             });
         },
         getTowns(e) {
-            EventBus.$emit('update-towns', e.target.value);
+            EventBus.$emit('city-change', e.target.value);
         }
     }
 };
