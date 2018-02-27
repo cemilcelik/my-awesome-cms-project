@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use App\News;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,13 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        Event::listen('routes.translation', function($locale, $attribute) {
+            if (isset($attribute['id'])) {
+                $news = News::find($attribute['id'])->languages->where('code', $locale);
+                $attribute['slug'] = str_slug($news->first()->pivot->title);
+
+                return $attribute;
+            }
+        });
     }
 }
